@@ -12,10 +12,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.nsd).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.register).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new NSDHelper(getApplicationContext());
+                new NSDHelperRegister(getApplicationContext());
+            }
+        });
+
+        findViewById(R.id.discover).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new NSDHelperDisccover(getApplicationContext());
             }
         });
     }
