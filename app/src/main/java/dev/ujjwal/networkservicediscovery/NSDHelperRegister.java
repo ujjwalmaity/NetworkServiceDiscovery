@@ -27,6 +27,10 @@ class NSDHelperRegister {
         initializeServerSocket();
     }
 
+    public int getLocalPort() {
+        return localPort;
+    }
+
     /***********************************************************************************************
      * Register service on the network
      **********************************************************************************************/
@@ -44,7 +48,7 @@ class NSDHelperRegister {
         registerService(localPort);
     }
 
-    private void registerService(int port) {
+    public void registerService(int port) {
         NsdServiceInfo serviceInfo = new NsdServiceInfo();
         serviceInfo.setServiceName(Constants.NSD_SERVICE_NAME);
         serviceInfo.setServiceType(Constants.NSD_SERVICE_TYPE);
@@ -82,5 +86,12 @@ class NSDHelperRegister {
                 // Unregistration failed. Put debugging code here to determine why.
             }
         };
+    }
+
+    /***********************************************************************************************
+     * Unregister your service on application close
+     **********************************************************************************************/
+    public void tearDown() {
+        nsdManager.unregisterService(registrationListener);
     }
 }

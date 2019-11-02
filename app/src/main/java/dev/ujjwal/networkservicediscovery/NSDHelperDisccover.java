@@ -98,4 +98,11 @@ class NSDHelperDisccover {
             }
         };
     }
+
+    /***********************************************************************************************
+     * Unregister your service on application close
+     **********************************************************************************************/
+    public void tearDown() {
+        nsdManager.stopServiceDiscovery(discoveryListener);
+    }
 }
