@@ -52,9 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (nsdHelperRegister != null) {
-            nsdHelperRegister.tearDown();
-        }
         if (nsdHelperDisccover != null) {
             nsdHelperDisccover.tearDown();
         }
